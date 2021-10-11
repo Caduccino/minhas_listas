@@ -2,24 +2,24 @@ import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import lixeira from '../img/lixo.svg'
 import edit from '../img/edit.svg'
-
 import './to-do-card.css'
 
-function ToDoCard() {
+function ToDoCard(props) {
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     return (
-        <>
+        <div key={props.id}>
         <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 pb-3">
             <div className="to-do-card">
-                <h3 className="to-do-card-title">Passear com os cachorros</h3>
-                <p>Bla bla bla  bla  bla  bla  bla  bla  bla  bla  bla bla bla bla bla bla bla bla bla bla bla…</p>
+                <h3 className="to-do-card-title">{props.title}</h3>
+                <p>{props.body}</p>
                 <button className="dark-button" onClick={handleShow}>Mais informações</button>
-                <div class="form-check card-form pt-3">
+                <div className="form-check card-form pt-3">
                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                    <label className="form-check-label" for="flexCheckDefault">
+                    <label className="form-check-label" htmlFor="flexCheckDefault">
                     Marcar como concluída
                     </label>
                 </div>
@@ -27,11 +27,11 @@ function ToDoCard() {
         </div>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Title>{props.title}</Modal.Title>
             </Modal.Header>
-            <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+            <Modal.Body>{props.body}</Modal.Body>
             <Modal.Footer>
-                <div class="form-check card-form">
+                <div className="form-check card-form">
                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                     <label className="form-check-label" for="flexCheckDefault">
                     Marcar como concluída
@@ -47,7 +47,7 @@ function ToDoCard() {
                 </div>
             </Modal.Footer>
         </Modal>
-    </>
+    </div>
     )
 }
 

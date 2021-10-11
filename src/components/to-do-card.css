@@ -1,0 +1,21 @@
+.to-do-card {
+    padding: 20px;
+    background-color: #F6FAFB;
+    border-radius: 10px;
+}
+
+.to-do-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #4060A0;
+    line-height: 20px;
+}
+
+.card-form {
+    font-size: 14px;
+    color: #4060A0;
+}
+
+.modal-footer {
+    justify-content: space-between!important;
+}

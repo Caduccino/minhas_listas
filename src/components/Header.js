@@ -7,22 +7,21 @@ import './header.css'
 
 function Header() {
 
-    const [actionMovies, setActionMovies] = useState([])
+    const [tasks, setTasks] = useState([])
   
     useEffect(() => {
         axios
-            .get(`https://api.themoviedb.org/3/discover/movie?api_key=122e854ed857bc5ba82a4556152ee944&language=pt-BR&with_genres=28`)
+            .get('http://localhost:8000/tasks?status=active',)
             .then((response) => {
-            setActionMovies([...response.data.results])
+            setTasks([...response.data])
         })
         .catch(err => console.error(err))
     }, [])
 
-
     return (
         <div className="row">
             <UserInfo
-            quantity= {actionMovies.length}
+            quantity= {tasks.length}
             />
             <div className="col-auto pt-3 align-items-center d-flex">
                 <Link to="/add"><button className="dark-button">Criar nova tarefa</button></Link>

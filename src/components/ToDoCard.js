@@ -11,8 +11,8 @@ function ToDoCard(props) {
     const handleShow = () => setShow(true);
 
     return (
-        <div key={props.id}>
-        <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 pb-3">
+        <>
+        <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 pb-3" key={props.id}>
             <div className="to-do-card">
                 <h3 className="to-do-card-title">{props.title}</h3>
                 <p>{props.body}</p>
@@ -47,7 +47,7 @@ function ToDoCard(props) {
                 </div>
             </Modal.Footer>
         </Modal>
-    </div>
+    </>
     )
 }
 

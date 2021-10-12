@@ -2,15 +2,15 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ToDoCard from "./ToDoCard"
 
-function MyTasks() {
+function CompletedTasks() {
 
-    const [tasks, setTasks] = useState([])
-
+    const [completedTasks, setCompletedTasks] = useState([])
+  
     useEffect(() => {
         axios
-            .get('http://localhost:8000/tasks?status=active')
+            .get('http://localhost:8000/tasks?status=inactive')
             .then((response) => {
-            setTasks([...response.data])
+            setCompletedTasks([...response.data])
             console.log(response)
         })
         .catch(err => console.error(err))
@@ -19,14 +19,14 @@ function MyTasks() {
     return (
         <div className="row">
             <div className="col-12 pb-1 pt-2">
-                <h3 className="section-name">Minhas tarefas</h3>
+                <h3 className="section-name">Tarefas concluídas</h3>
             </div>
-            {tasks.map((task) => {
+            {completedTasks.map((completedTask) => {
                 return (    
                     <ToDoCard
-                    key={task.id}
-                    title= {task.title}
-                    body= {task.body}
+                    key={completedTask.id}
+                    title= {completedTask.title}
+                    body= {completedTask.body}
                     />     
                 )  
             })}
@@ -34,4 +34,4 @@ function MyTasks() {
     )
 }
 
-export default MyTasks
+export default CompletedTasks

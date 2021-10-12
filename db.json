@@ -1,0 +1,27 @@
+{   "userInfo":[
+    {
+      "userName": "Mr.Bean",
+      "userImage": "https://i.dailymail.co.uk/1s/2020/10/03/01/33925330-8800445-image-a-2_1601684278812.jpg"
+    }
+    ],
+    "tasks": [
+    {
+      "title": "Passear com os cachorros",
+      "body": "Andar no mínimo 4 quarteirões com os doguinhos",
+      "id": 1,
+      "status": "active"
+    },
+    {
+      "title": "Ir a feira",
+      "body": "Comprar mamão, couve e vagem",
+      "id": 2,
+      "status": "active"
+    },
+    {
+      "title": "Comprar cerveja",
+      "body": "Ir a loja de cervejas artesanais e comprar 6 cervejas",
+      "id": 3,
+      "status": "inactive"
+    }
+  ]
+}

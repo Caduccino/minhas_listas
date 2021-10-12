@@ -4,7 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './Header';
-import MyTasks from './MyTasks';
+import Home from './Home'
 import Form from './Form';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <div className="container">
     <BrowserRouter>
       <Header />
-      <Route exact path="/" component={ MyTasks } />
+      <Route exact path="/" component={ Home } />
       <Route path="/add" component={ Form } />
     </BrowserRouter>
     </div>

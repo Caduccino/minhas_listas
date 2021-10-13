@@ -8,13 +8,13 @@ function MyTasks() {
 
     useEffect(() => {
         axios
-            .get('http://localhost:8000/tasks?status=active')
+            .get('http://localhost:3000/tasks?status=active')
             .then((response) => {
             setTasks([...response.data])
             console.log(response)
         })
         .catch(err => console.error(err))
-    }, [])
+    }, [tasks])
 
     return (
         <div className="row">

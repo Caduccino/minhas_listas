@@ -7,7 +7,7 @@ function Home() {
         <>
         <MyTasks />
         <CompletedTasks />
-        </>
+                </>
     )
 
 }

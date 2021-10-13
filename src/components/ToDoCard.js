@@ -1,9 +1,9 @@
-import lixeira from '../img/lixo.svg'
-import edit from '../img/edit.svg'
-import './to-do-card.css'
+import {Link} from 'react-router-dom';
+import lixeira from '../img/lixo.svg';
+import edit from '../img/edit.svg';
+import './to-do-card.css';
 
 function ToDoCard(props) {
-
     return (
         <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12 pb-3" key={props.id}>
             <div className="to-do-card">
@@ -17,7 +17,7 @@ function ToDoCard(props) {
                     </div>
                     <div className="d-flex align-middle">
                         <img className="me-3" src={ lixeira } alt="Deletar tarefa" />
-                        <img src={ edit } alt="Editar tarefa" />
+                        <Link className="link-tag" to={`/update/${props.id}`}><img src={ edit } alt="Editar tarefa" /></Link>
                     </div>
                 </div>
             </div>

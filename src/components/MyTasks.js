@@ -27,6 +27,7 @@ function MyTasks() {
                     key={task.id}
                     title= {task.title}
                     body= {task.body}
+                    id= {task.id}
                     />     
                 )  
             })}

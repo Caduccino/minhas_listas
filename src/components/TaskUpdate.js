@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import axios from 'axios';
 
-function Form(props) {
+function TaskUpdate() {
     const [formData, setFormData] = useState({
         title: "",
         body: "",
@@ -12,25 +11,15 @@ function Form(props) {
         setFormData({...formData, [event.target.name]: event.target.value});
     }
 
-    function handleSubmit(event) {
-        event.preventDefault()
-        axios.post('http://localhost:8000/tasks', formData)
-        .then(response => {
-        props.history.push('/')
-        console.log(response)
-        })
-        .catch(err => console.error(err))
-    }
-
-    return (
+    return(
         <div className="row">
             <div className="col-12 pb-1 pt-2">
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="title"><h3 className="section-name">Qual é a sua nova tarefa?</h3></label>
+                <form>
+                    <label htmlFor="title"><h3 className="section-name">Nome da tarefa</h3></label>
                     <div className="mb-3">
                         <input required onChange={handleChange} value={formData.title} type="text" name="title" id="title" className="form-control" />
                     </div>
-                    <label htmlFor="body"><h3 className="section-name">Detalhe a sua tarefa</h3></label>
+                    <label htmlFor="body"><h3 className="section-name">Detalhe da tarefa</h3></label>
                     <div className="mb-3">
                         <input required onChange={handleChange}  value={formData.body} name="body" id="body" className="form-control" />
                     </div>
@@ -41,4 +30,4 @@ function Form(props) {
     )
 }
 
-export default Form
+export default TaskUpdate

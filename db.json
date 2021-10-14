@@ -25,20 +25,14 @@
       "status": "inactive"
     },
     {
-      "title": "1234",
-      "body": "1234",
-      "status": "active",
-      "id": 11
-    },
-    {
       "id": 12,
       "title": "teste123456789",
       "body": "Teste 2",
       "status": "inactive"
     },
     {
-      "title": "teste 123",
-      "body": "olá123",
+      "title": "teste 1234",
+      "body": "olá1234",
       "status": "active",
       "id": 13
     },

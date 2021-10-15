@@ -4,7 +4,7 @@ import edit from '../img/edit.svg';
 import './to-do-card.css';
 import axios from 'axios';
 
-function ToDoCard(props) {
+function DoneCard(props) {
     function handleDelete (){
         axios
         .delete(`http://localhost:3000/tasks/${props.id}`)
@@ -13,22 +13,20 @@ function ToDoCard(props) {
         })
         .catch((err) => console.error(err));
     }
-    function handleFinish(){
+
+    function handleReopen(){
         const objeto = {
             id:props.id,
             title:props.title,
             body: props.body,
-            unfinished: false,
-            status: "inactive"
+            unfinished: true,
+            status: "active"
         }
         axios
         .put(`http://localhost:3000/tasks/${props.id}`, objeto)
-        .then((response) => {
-            console.log(response);
-          
-        })
         .catch((err) => console.error(err));
     }
+    
 
     return (
         
@@ -40,7 +38,7 @@ function ToDoCard(props) {
                 </div>
                 <div className="d-flex justify-content-between align-middle">
                     <div>
-                    <button className="dark-button" onClick={handleFinish}>Concluir</button>
+                    <button className="dark-button" onClick={handleReopen}>Reabrir</button>
                     </div>
                     <div className="d-flex align-middle">
                         <img className="me-3 lixeira" src={ lixeira } alt="Deletar tarefa" onClick={handleDelete}/>
@@ -52,4 +50,4 @@ function ToDoCard(props) {
     )
 }
 
-export default ToDoCard
+export default DoneCard

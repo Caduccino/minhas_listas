@@ -11,10 +11,9 @@ function MyTasks() {
             .get('http://localhost:3000/tasks')
             .then((response) => {
             setTasks([...response.data])
-            console.log(response)
         })
         .catch(err => console.error(err))
-    }, [tasks])
+    }, [])
 
     return (
         <div className="row">
@@ -22,12 +21,13 @@ function MyTasks() {
                 <h3 className="section-name">Minhas tarefas</h3>
             </div>
             {tasks.filter(task => 
-                task.status === "active").map(filteredTask => (
+                task.unfinished).map(filteredTask => (
                     <ToDoCard
                     key={filteredTask.id}
                     title= {filteredTask.title}
                     body= {filteredTask.body}
                     id= {filteredTask.id}
+                    class={'to-do-card'}
                     /> 
             ))}
         </div>

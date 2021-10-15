@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ToDoCard from "./ToDoCard"
+import DoneCard from "./DoneCard"
 
 function CompletedTasks() {
 
@@ -11,9 +11,10 @@ function CompletedTasks() {
             .get('http://localhost:3000/tasks')
             .then((response) => {
             setCompletedTasks([...response.data])
+            console.log(completedTasks)
         })
         .catch(err => console.error(err))
-    }, [completedTasks])
+    }, [])
 
     return (
         <div className="row">
@@ -21,12 +22,13 @@ function CompletedTasks() {
                 <h3 className="section-name">Tarefas concluídas</h3>
             </div>
             {completedTasks.filter(completedTask => 
-                completedTask.status === "inactive").map(filteredCompletedTasks => (
-                    <ToDoCard
+                completedTask.unfinished === false).map(filteredCompletedTasks => (
+                    <DoneCard
                     key={filteredCompletedTasks.id}
                     title= {filteredCompletedTasks.title}
                     body= {filteredCompletedTasks.body}
                     id= {filteredCompletedTasks.id}
+                    class={'done-card'}
                     /> 
             ))}
         </div>

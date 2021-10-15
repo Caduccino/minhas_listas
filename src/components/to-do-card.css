@@ -4,6 +4,12 @@
     border-radius: 10px;
 }
 
+.done-card {
+    padding: 20px;
+    background-color: #d7eba0;
+    border-radius: 10px;
+}
+
 .to-do-card-title {
     font-size: 18px;
     font-weight: 700;
@@ -18,4 +24,8 @@
 
 .link-tag {
     padding-top: 5px;
+}
+
+.lixeira{
+    cursor: pointer;
 }

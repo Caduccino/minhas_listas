@@ -1,3 +1,4 @@
+import Header from './Header';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -23,6 +24,8 @@ function Form(props) {
     }
 
     return (
+        <>
+        <Header />
         <div className="row">
             <div className="col-12 pb-1 pt-2">
                 <form onSubmit={handleSubmit}>
@@ -38,6 +41,7 @@ function Form(props) {
                 </form>
             </div>
         </div>
+        </>
     )
 }
 

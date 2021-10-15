@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function TaskUpdate() {
     const [formData, setFormData] = useState({
@@ -6,6 +6,21 @@ function TaskUpdate() {
         body: "",
         status: "active"
     });
+
+    const { id } = useParams();
+    useEffect(() => {
+        axios
+          .get(`http://localhost:3000/tasks/${id}`)
+          .then((response) => {
+            console.log(response);
+            setFormData({ ...response.data });
+          })
+          .catch((err) => console.error(err));
+      }, [id]);
+    function handleChange(event) {
+        setFormData({...formData, [event.target.name]: event.target.value});
+    }
+    
 
     function handleChange(event) {
         setFormData({...formData, [event.target.name]: event.target.value});

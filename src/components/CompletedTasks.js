@@ -11,7 +11,6 @@ function CompletedTasks() {
             .get('http://localhost:3000/tasks')
             .then((response) => {
             setCompletedTasks([...response.data])
-            console.log(completedTasks)
         })
         .catch(err => console.error(err))
     }, [])

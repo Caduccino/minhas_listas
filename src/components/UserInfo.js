@@ -1,10 +1,26 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+
 function UserInfo(props) {
+
+    const [info, setInfo] = useState([])
+    
+    useEffect(() => {
+        axios
+            .get('http://localhost:3000/userInfo')
+            .then((response) => {
+            setInfo(...response.data)
+        })
+        .catch(err => console.error(err))
+    }, [])
+
+
     return (
         <div className="col-auto me-auto pt-3">
             <div className="align-items-center d-flex">
-                <div className="user-picture"></div>
-                <div className="mx-2">
-                    <span className="saudacao">Olá, Fulano!</span><br />
+                <div>
+                    <span className="saudacao">Olá, {info.userName}</span><br />
                     <span className="ativ-pendentes">Você tem <strong>{props.quantity} tarefas</strong> pendentes</span>
                 </div>
             </div>

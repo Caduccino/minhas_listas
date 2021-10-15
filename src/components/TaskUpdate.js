@@ -27,6 +27,9 @@ function TaskUpdate(props) {
         event.preventDefault()
         axios
         .put(`http://localhost:3000/tasks/${id}`, formData)
+        .then(response => {
+            props.history.push('/')
+        })
         .catch((err) => console.error(err));
     }
     return(

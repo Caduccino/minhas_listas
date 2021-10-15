@@ -12,7 +12,7 @@ function Header() {
     
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/tasks/?status=active`)
+            .get(`http://localhost:3000/tasks/?status=active`)
             .then((response) => {
             setTasks([...response.data])
         })

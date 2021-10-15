@@ -8,13 +8,13 @@ function CompletedTasks() {
   
     useEffect(() => {
         axios
-            .get('http://localhost:8000/tasks?status=inactive')
+            .get('http://localhost:3000/tasks?status=inactive')
             .then((response) => {
             setCompletedTasks([...response.data])
             console.log(response)
         })
         .catch(err => console.error(err))
-    }, [])
+    }, [completedTasks])
 
     return (
         <div className="row">

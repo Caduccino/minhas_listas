@@ -8,10 +8,17 @@
   "tasks": [
     {
       "id": 1,
-      "title": "Tarefa 1",
-      "body": "Tarefa 1",
+      "title": "Tarefa 11",
+      "body": "Tarefa 11",
       "unfinished": true,
       "status": "active"
+    },
+    {
+      "id": 2,
+      "title": "Tarefa 2",
+      "body": "Tarefa 2",
+      "unfinished": false,
+      "status": "inactive"
     }
   ]
 }

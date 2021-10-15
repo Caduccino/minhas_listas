@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserInfo from './UserInfo'
 import './header.css'
+import MyTasks from './MyTasks';
 
 function Header() {
 
@@ -15,7 +16,7 @@ function Header() {
             setTasks([...response.data])
         })
         .catch(err => console.error(err))
-    }, [])
+    }, [<MyTasks />])
 
     return (
         <div className="row">

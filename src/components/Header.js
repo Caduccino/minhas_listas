@@ -16,7 +16,7 @@ function Header() {
             setTasks([...response.data])
         })
         .catch(err => console.error(err))
-    }, [<MyTasks />])
+    }, [])
 
     return (
         <div className="row">

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import MyTasks from './MyTasks';
 import CompletedTasks from './CompletedTasks';
 import Header from './Header';

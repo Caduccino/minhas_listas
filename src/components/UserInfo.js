@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
-
 function UserInfo(props) {
     const [info, setInfo] = useState([])
     
@@ -13,7 +11,6 @@ function UserInfo(props) {
         })
         .catch(err => console.error(err))
     }, [])
-
 
     return (
         <div className="col-auto me-auto pt-3">

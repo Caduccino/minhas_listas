@@ -7,32 +7,25 @@
   ],
   "tasks": [
     {
-      "id": 1,
-      "title": "Teste 2",
-      "body": "Teste 2",
-      "unfinished": false,
-      "status": "inactive"
+      "title": "Teste",
+      "body": "Teste",
+      "unfinished": true,
+      "status": "active",
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "2",
+      "title": "Teste ",
+      "body": "Teste",
+      "unfinished": true,
+      "status": "active",
+      "id": 2
+    },
+    {
+      "title": "Teste 2",
       "body": "2",
       "unfinished": true,
-      "status": "active"
-    },
-    {
-      "id": 3,
-      "title": "Teste h",
-      "body": "Teste h",
-      "unfinished": false,
-      "status": "inactive"
-    },
-    {
-      "id": 4,
-      "title": "bofga2",
-      "body": "bofga2",
-      "unfinished": false,
-      "status": "inactive"
+      "status": "active",
+      "id": 3
     }
   ]
 }

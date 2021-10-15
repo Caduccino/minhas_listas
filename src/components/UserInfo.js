@@ -3,7 +3,6 @@ import axios from 'axios';
 
 
 function UserInfo(props) {
-
     const [info, setInfo] = useState([])
     
     useEffect(() => {

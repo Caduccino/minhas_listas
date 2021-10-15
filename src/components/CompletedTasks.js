@@ -1,16 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 import DoneCard from "./DoneCard"
 
-function CompletedTasks() {
-
-    const [completedTasks, setCompletedTasks] = useState([])
+function CompletedTasks(props) {
 
     useEffect(() => {
         axios
             .get('http://localhost:3000/tasks')
             .then((response) => {
-            setCompletedTasks([...response.data])
+            props.getTasks()
         })
         .catch(err => console.error(err))
     }, [])
@@ -20,14 +18,16 @@ function CompletedTasks() {
             <div className="col-12 pb-1 pt-2">
                 <h3 className="section-name">Tarefas concluídas</h3>
             </div>
-            {completedTasks.filter(completedTask => 
-                completedTask.unfinished === false).map(filteredCompletedTasks => (
+            
+            {props.tasks.filter(task => 
+                task.unfinished === false).map(filteredTask => (
                     <DoneCard
-                    key={filteredCompletedTasks.id}
-                    title= {filteredCompletedTasks.title}
-                    body= {filteredCompletedTasks.body}
-                    id= {filteredCompletedTasks.id}
+                    key={filteredTask.id}
+                    title= {filteredTask.title}
+                    body= {filteredTask.body}
+                    id= {filteredTask.id}
                     class={'done-card'}
+                    getTasks={props.getTasks}
                     /> 
             ))}
         </div>

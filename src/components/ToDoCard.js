@@ -16,7 +16,8 @@ function ToDoCard(props) {
         axios
         .delete(`http://localhost:3000/tasks/${props.id}`)
         .then(
-            setShow(false)
+            setShow(false),
+            props.getTasks()
         )
         .catch((err) => console.error(err));
     }
@@ -31,8 +32,7 @@ function ToDoCard(props) {
         axios
         .put(`http://localhost:3000/tasks/${props.id}`, objeto)
         .then((response) => {
-            console.log(response);
-          
+            props.getTasks() 
         })
         .catch((err) => console.error(err));
     }

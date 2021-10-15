@@ -15,13 +15,12 @@ function DoneCard(props) {
     function handleDelete (){
         axios
         .delete(`http://localhost:3000/tasks/${props.id}`)
-        .then((response) => {
-            setShow(false)
-            console.log(response);
-        })
+        .then(
+            setShow(false),
+            props.getTasks() 
+        )
         .catch((err) => console.error(err));
     }
-
     function handleReopen(){
         const objeto = {
             id:props.id,
@@ -32,9 +31,11 @@ function DoneCard(props) {
         }
         axios
         .put(`http://localhost:3000/tasks/${props.id}`, objeto)
+        .then((response) => {
+            props.getTasks() 
+        })
         .catch((err) => console.error(err));
     }
-    
 
     return (
         <>

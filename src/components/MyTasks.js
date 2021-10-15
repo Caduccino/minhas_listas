@@ -1,16 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 import ToDoCard from "./ToDoCard"
 
-function MyTasks() {
-
-    const [tasks, setTasks] = useState([])
+function MyTasks(props) {
 
     useEffect(() => {
         axios
             .get('http://localhost:3000/tasks')
             .then((response) => {
-            setTasks([...response.data])
+            props.getTasks()
         })
         .catch(err => console.error(err))
     }, [])
@@ -20,7 +18,7 @@ function MyTasks() {
             <div className="col-12 pb-1 pt-2">
                 <h3 className="section-name">Minhas tarefas</h3>
             </div>
-            {tasks.filter(task => 
+            {props.tasks.filter(task => 
                 task.unfinished).map(filteredTask => (
                     <ToDoCard
                     key={filteredTask.id}
@@ -28,6 +26,7 @@ function MyTasks() {
                     body= {filteredTask.body}
                     id= {filteredTask.id}
                     class={'to-do-card'}
+                    getTasks={props.getTasks}
                     /> 
             ))}
         </div>

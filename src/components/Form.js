@@ -1,4 +1,3 @@
-import Header from './Header';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -15,7 +14,7 @@ function Form(props) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        axios.post('http://localhost:8000/tasks', formData)
+        axios.post('http://localhost:3000/tasks', formData)
         .then(response => {
         props.history.push('/')
         console.log(response)
@@ -24,8 +23,6 @@ function Form(props) {
     }
 
     return (
-        <>
-        <Header />
         <div className="row">
             <div className="col-12 pb-1 pt-2">
                 <form onSubmit={handleSubmit}>
@@ -41,7 +38,6 @@ function Form(props) {
                 </form>
             </div>
         </div>
-        </>
     )
 }
 

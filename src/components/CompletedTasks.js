@@ -5,31 +5,30 @@ import ToDoCard from "./ToDoCard"
 function CompletedTasks() {
 
     const [completedTasks, setCompletedTasks] = useState([])
-  
+
     useEffect(() => {
         axios
-            .get('http://localhost:8000/tasks?status=inactive')
+            .get('http://localhost:3000/tasks')
             .then((response) => {
             setCompletedTasks([...response.data])
-            console.log(response)
         })
         .catch(err => console.error(err))
-    }, [])
+    }, [completedTasks])
 
     return (
         <div className="row">
             <div className="col-12 pb-1 pt-2">
                 <h3 className="section-name">Tarefas concluídas</h3>
             </div>
-            {completedTasks.map((completedTask) => {
-                return (    
+            {completedTasks.filter(completedTask => 
+                completedTask.status === "inactive").map(filteredCompletedTasks => (
                     <ToDoCard
-                    key={completedTask.id}
-                    title= {completedTask.title}
-                    body= {completedTask.body}
-                    />     
-                )  
-            })}
+                    key={filteredCompletedTasks.id}
+                    title= {filteredCompletedTasks.title}
+                    body= {filteredCompletedTasks.body}
+                    id= {filteredCompletedTasks.id}
+                    /> 
+            ))}
         </div>
     )
 }

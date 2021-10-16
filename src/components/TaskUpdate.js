@@ -1,13 +1,8 @@
+import Header from './Header'
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router';
 import axios from 'axios';
 
-<<<<<<< HEAD
-import Header from './Header';
-
-
-=======
->>>>>>> ae5141405e062008d2bcbc0ceafa04372bf4b240
 function TaskUpdate(props) {
     const [formData, setFormData] = useState({
         title: "",
@@ -38,27 +33,9 @@ function TaskUpdate(props) {
         .catch((err) => console.error(err));
     }
 
-    const [tasks, setTasks] = useState([])
-
-    const getTasks = () => {
-        axios
-        .get('https://ironrest.herokuapp.com/minhas-tarefas')
-        .then((response) => {
-        setTasks([...response.data])
-    })
-    .catch(err => console.error(err))
-    };
-
-    useEffect(() => {
-        getTasks();
-    }, []);
-
     return(
-        <>
-<<<<<<< HEAD
-        <Header tasks={tasks} />
-=======
->>>>>>> ae5141405e062008d2bcbc0ceafa04372bf4b240
+        <>  
+            <Header />
             <div className="row">
                 <div className="col-12 pb-1 pt-2">
                     <form onSubmit={handleSubmit}>

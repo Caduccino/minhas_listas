@@ -41,7 +41,7 @@ function Form(props) {
 
     return (
         <>
-            <Header tasks={tasks}/>
+            <Header quantity={tasks.filter(task => task.unfinished).length} />
             <div className="row">
                 <div className="col-12 pb-1 pt-2">
                     <form onSubmit={handleSubmit}>

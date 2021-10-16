@@ -33,9 +33,23 @@ function TaskUpdate(props) {
         .catch((err) => console.error(err));
     }
 
+    const [tasks, setTasks] = useState([])
+    const getTasks = () => {
+        axios
+        .get('https://ironrest.herokuapp.com/minhas-tarefas')
+        .then((response) => {
+        setTasks([...response.data])
+    })
+    .catch(err => console.error(err))
+    };
+
+    useEffect(() => {
+        getTasks();
+    }, []);
+
     return(
         <>  
-            <Header />
+            <Header quantity={tasks.filter(task => task.unfinished).length} />
             <div className="row">
                 <div className="col-12 pb-1 pt-2">
                     <form onSubmit={handleSubmit}>

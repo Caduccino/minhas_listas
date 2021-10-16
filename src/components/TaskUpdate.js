@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Header from './Header';
 
+
 function TaskUpdate(props) {
     const [formData, setFormData] = useState({
         title: "",
@@ -13,7 +14,7 @@ function TaskUpdate(props) {
     const { id } = useParams();
     useEffect(() => {
         axios
-          .get(`http://localhost:3000/tasks/${id}`)
+          .get(`https://ironrest.herokuapp.com/minhas-tarefas/${id}`)
           .then((response) => {
             console.log(response);
             setFormData({ ...response.data });
@@ -25,16 +26,33 @@ function TaskUpdate(props) {
     }
     function handleSubmit(event){
         event.preventDefault()
+        delete formData._id
         axios
-        .put(`http://localhost:3000/tasks/${id}`, formData)
+        .put(`https://ironrest.herokuapp.com/minhas-tarefas/${id}`, formData)
         .then(response => {
             props.history.push('/')
         })
         .catch((err) => console.error(err));
     }
+
+    const [tasks, setTasks] = useState([])
+
+    const getTasks = () => {
+        axios
+        .get('https://ironrest.herokuapp.com/minhas-tarefas')
+        .then((response) => {
+        setTasks([...response.data])
+    })
+    .catch(err => console.error(err))
+    };
+
+    useEffect(() => {
+        getTasks();
+    }, []);
+
     return(
         <>
-        <Header />
+        <Header tasks={tasks} />
             <div className="row">
                 <div className="col-12 pb-1 pt-2">
                     <form onSubmit={handleSubmit}>

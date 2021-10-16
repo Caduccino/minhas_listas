@@ -8,7 +8,7 @@ function TaskDelete() {
 
   useEffect(() => {
     axios
-      .delete(`http://localhost:3000/tasks/${id}`)
+      .delete(`https://ironrest.herokuapp.com/minhas-tarefas/${id}`)
       .then(() => history.push("/"))
       .catch((err) => console.error(err));
   }, [history, id]);

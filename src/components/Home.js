@@ -9,7 +9,7 @@ function Home() {
 
     const getTasks = () => {
         axios
-        .get('http://localhost:3000/tasks')
+        .get('https://ironrest.herokuapp.com/minhas-tarefas')
         .then((response) => {
         setTasks([...response.data])
     })
@@ -22,7 +22,7 @@ function Home() {
 
     return (
         <>
-        <Header />
+        <Header tasks={tasks} />
         <MyTasks tasks={tasks} getTasks={getTasks} />
         <CompletedTasks tasks={tasks} getTasks={getTasks} />
         </>

@@ -14,23 +14,22 @@ function ToDoCard(props) {
 
     function handleDelete (){
         axios
-        .delete(`http://localhost:3000/tasks/${props.id}`)
+        .delete(`https://ironrest.herokuapp.com/minhas-tarefas/${props.id}`)
         .then(
             setShow(false),
-            props.getTasks()
+            setTimeout(( ) => props.getTasks(), 1000)
         )
         .catch((err) => console.error(err));
     }
     function handleFinish(){
         const objeto = {
-            id:props.id,
             title:props.title,
             body: props.body,
             unfinished: false,
             status: "inactive"
         }
         axios
-        .put(`http://localhost:3000/tasks/${props.id}`, objeto)
+        .put(`https://ironrest.herokuapp.com/minhas-tarefas/${props.id}`, objeto)
         .then((response) => {
             props.getTasks() 
         })

@@ -1,17 +1,6 @@
-import { useEffect } from 'react';
-import axios from 'axios';
 import ToDoCard from "./ToDoCard"
 
 function MyTasks(props) {
-
-    useEffect(() => {
-        axios
-            .get('http://localhost:3000/tasks')
-            .then((response) => {
-            props.getTasks()
-        })
-        .catch(err => console.error(err))
-    }, [])
 
     return (
         <div className="row">
@@ -21,10 +10,10 @@ function MyTasks(props) {
             {props.tasks.filter(task => 
                 task.unfinished).map(filteredTask => (
                     <ToDoCard
-                    key={filteredTask.id}
+                    key={filteredTask._id}
                     title= {filteredTask.title}
                     body= {filteredTask.body}
-                    id= {filteredTask.id}
+                    id= {filteredTask._id}
                     class={'to-do-card'}
                     getTasks={props.getTasks}
                     /> 

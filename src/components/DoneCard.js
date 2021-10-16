@@ -7,7 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 
-function ToDoCard(props) {
+function DoneCard(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -17,17 +17,17 @@ function ToDoCard(props) {
         .delete(`http://localhost:3000/tasks/${props.id}`)
         .then(
             setShow(false),
-            props.getTasks()
+            props.getTasks() 
         )
         .catch((err) => console.error(err));
     }
-    function handleFinish(){
+    function handleReopen(){
         const objeto = {
             id:props.id,
             title:props.title,
             body: props.body,
-            unfinished: false,
-            status: "inactive"
+            unfinished: true,
+            status: "active"
         }
         axios
         .put(`http://localhost:3000/tasks/${props.id}`, objeto)
@@ -47,7 +47,7 @@ function ToDoCard(props) {
                 </div>
                 <div className="d-flex justify-content-between align-middle">
                     <div>
-                    <button className="dark-button" onClick={handleFinish}>Concluir</button>
+                    <button className="dark-button" onClick={handleReopen}>Reabrir</button>
                     </div>
                     <div className="d-flex align-middle">
                         <img className="me-3 lixeira" src={ lixeira } alt="Deletar tarefa" onClick={handleShow}/>
@@ -71,4 +71,4 @@ function ToDoCard(props) {
     )
 }
 
-export default ToDoCard
+export default DoneCard

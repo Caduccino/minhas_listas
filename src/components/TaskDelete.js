@@ -13,7 +13,7 @@ function TaskDelete() {
       .catch((err) => console.error(err));
   }, [history, id]);
 
-//   return <div>Deleting...</div>;
+  return <div>Deleting...</div>;
 }
 
 export default TaskDelete;

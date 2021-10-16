@@ -1,28 +1,14 @@
 import {Link} from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
 import UserInfo from './UserInfo'
 import './header.css'
 
-function Header() {
-
-    const [tasks, setTasks] = useState([])
-
-    
-    useEffect(() => {
-        axios
-            .get(`http://localhost:3000/tasks/?status=active`)
-            .then((response) => {
-            setTasks([...response.data])
-        })
-        .catch(err => console.error(err))
-    }, [])
+function Header(props) {
 
     return (
         <div className="row">
             <UserInfo
-            quantity= {tasks.length}
+            userName={props.userName}
+            quantity={props.quantity}
             />
             <div className="col-auto pt-3 align-items-center d-flex">
                 <Link to="/add"><button className="dark-button">Criar nova tarefa</button></Link>

@@ -4,6 +4,12 @@
     border-radius: 10px;
 }
 
+.done-card {
+    padding: 20px;
+    background-color: #F6F2B3;
+    border-radius: 10px;
+}
+
 .to-do-card-title {
     font-size: 18px;
     font-weight: 700;

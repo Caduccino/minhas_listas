@@ -5,7 +5,7 @@ function UserInfo(props) {
     
     useEffect(() => {
         axios
-            .get('http://localhost:3000/userInfo')
+            .get('https://ironrest.herokuapp.com/minhas-tarefas-user-info')
             .then((response) => {
             setInfo(...response.data)
         })

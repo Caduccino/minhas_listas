@@ -7,9 +7,7 @@ function Header(props) {
     return (
         <div className="row">
             <UserInfo
-            userName={props.userName}
-            quantity={props.quantity}
-            />
+            quantity={props.quantity} getTasks={props.getTasks} />
             <div className="col-auto pt-3 align-items-center d-flex">
                 <Link to="/add"><button className="dark-button">Criar nova tarefa</button></Link>
             </div>

@@ -6,7 +6,7 @@ function CompletedTasks(props) {
 
     useEffect(() => {
         axios
-            .get('http://localhost:3000/tasks')
+            .get('https://ironrest.herokuapp.com/minhas-tarefas?status=active')
             .then((response) => {
             props.getTasks()
         })
@@ -22,10 +22,10 @@ function CompletedTasks(props) {
             {props.tasks.filter(task => 
                 task.unfinished === false).map(filteredTask => (
                     <DoneCard
-                    key={filteredTask.id}
+                    key={filteredTask._id}
                     title= {filteredTask.title}
                     body= {filteredTask.body}
-                    id= {filteredTask.id}
+                    id= {filteredTask._id}
                     class={'done-card'}
                     getTasks={props.getTasks}
                     /> 

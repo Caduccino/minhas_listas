@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from 'react-router';
 import axios from 'axios';
 
-import Header from './Header';
-
 function TaskUpdate(props) {
     const [formData, setFormData] = useState({
         title: "",
@@ -34,7 +32,6 @@ function TaskUpdate(props) {
     }
     return(
         <>
-        <Header />
             <div className="row">
                 <div className="col-12 pb-1 pt-2">
                     <form onSubmit={handleSubmit}>
